@@ -14,9 +14,9 @@ create table Airplane
 	);
 
 create table Airport
-	(aiprot_name	varchar(25),
+	(airport_name	varchar(25),
 	 city			varchar(10),
-	 primary key (aiprot_name)
+	 primary key (airport_name)
 	);
 
 create table Flight
@@ -35,9 +35,9 @@ create table Flight
 		on delete cascade,
 	 foreign key (ap_id) references Airplane(ap_id)
 	 	on delete set null,
-	 foreign key (d_airport) references Airport(aiprot_name)
+	 foreign key (d_airport) references Airport(airport_name)
 	 	on delete set null,
-	 foreign key (a_airport) references Airport(aiprot_name)
+	 foreign key (a_airport) references Airport(airport_name)
 	 	on delete set null
 	);
 
