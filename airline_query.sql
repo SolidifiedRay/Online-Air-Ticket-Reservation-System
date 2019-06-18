@@ -17,3 +17,8 @@ WHERE Customer.c_email = Ticket.c_email
 SELECT *
 FROM Airplane
 WHERE al_name = "China Eastern"
+
+
+SELECT *
+FROM Airplane
+WHERE al_name = "emirates"
