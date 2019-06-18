@@ -65,7 +65,7 @@ create table Staff_phone
 
 
 create Table Customer
-	(c_email		varchar(20),
+	(c_email		varchar(15),
 	 c_name			varchar(15),
 	 password		varchar(15),
 	 building_name	varchar(15),
