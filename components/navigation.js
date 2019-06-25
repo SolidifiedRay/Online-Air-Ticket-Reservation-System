@@ -17,7 +17,7 @@ inner += '        			<ul class="nav navbar-nav">';
 inner += '        				<li class="cative"><a href="index.html" class="navbar-subtitle">Main</a></li>';
 inner += '        				<li class="cative"><a href="index.html" class="navbar-subtitle">View</a></li>';
 inner += '        				<li class="cative"><a href="index.html" class="navbar-subtitle">Search</a></li>';
-inner += '        				<li class="cative"><a href="index.html" class="navbar-subtitle">About</a></li>';
+inner += '        				<li class="cative"><a href="https://github.com/SolidifiedRay/Online-Air-Ticket-Reservation-System" class="navbar-subtitle" target="_blank">About</a></li>';
 inner += '        				<li class="cative"><a href="login.html" class="navbar-subtitle">Login</a></li>';
 inner += '        			</ul>';
 inner += '    			</div>';
