@@ -18,7 +18,7 @@ inner += '        				<li class="cative"><a href="index.html" class="navbar-subt
 inner += '        				<li class="cative"><a href="index.html" class="navbar-subtitle">View</a></li>';
 inner += '        				<li class="cative"><a href="index.html" class="navbar-subtitle">Search</a></li>';
 inner += '        				<li class="cative"><a href="index.html" class="navbar-subtitle">About</a></li>';
-inner += '        				<li class="cative"><a href="index.html" class="navbar-subtitle">Login</a></li>';
+inner += '        				<li class="cative"><a href="login.html" class="navbar-subtitle">Login</a></li>';
 inner += '        			</ul>';
 inner += '    			</div>';
 inner += '    		</div>';

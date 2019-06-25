@@ -43,6 +43,42 @@
 	text-align: center;
 }
 
+.login-table{
+	margin:0 auto; 
+	border-spacing: 100px;
+	width: 90%;
+}
+
+.login-table-left{
+	background-color: #90bae4;
+	padding: 20px;
+}
+
+.login-table-right{
+	background-color: #6e96bf;
+	padding: 30px;
+}
+
+.login-title{
+	font-size: 30px;
+	font-weight: 700;
+}
+
+.login-subtitle{
+	font-size: 20px;
+	font-weight: 450;
+}
+
+.login-text{
+	font-size: 20px;
+	font-weight: 450;
+	color: white;
+}
+
+.login-hr{
+	background-color: black;
+}
+
 .full-width{
 	width: 100%;
 }
