@@ -92,3 +92,27 @@
 	color: white; 
 	font-size: 20px;
 }
+
+.view-table{
+	background-color: rgba(255,255,255,0.8);
+}
+
+.view-table-head{
+	line-height: 50px !important;
+}
+
+.view-table-td{
+	line-height: 30px !important;
+}
+
+.search-table{
+	margin:0 auto; 
+	border-spacing: 100px;
+	width: 90%;
+	background-color: #a1a1a1;
+	padding: 20px;
+}
+
+.search-table-td{
+	padding: 20px;
+}
