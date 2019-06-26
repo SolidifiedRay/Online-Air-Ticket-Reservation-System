@@ -25,7 +25,7 @@ $r = $db->query($sql);
 
 if($r)
 {
-    echo "Success";
+    header("location:index.html");
 }
 else
 {
