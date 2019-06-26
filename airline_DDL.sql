@@ -85,14 +85,14 @@ create table Ticket
 	(t_id  			varchar(15),
 	 f_id			varchar(10),
 	 al_name		varchar(25),
-	 d_date_time	datetime(0),
+	 d_date_time	varchar(25),
 	 c_email		varchar(15),
 	 sold_price		numeric(5,2),
 	 card_type		varchar(15),
 	 card_num		varchar(15),
 	 name_on_card	varchar(15),
 	 exp_date		date,
-	 purchase_date_time		datetime(0),
+	 purchase_date_time		varchar(25),
 
 	 primary key (t_id),
 	 foreign key (al_name, f_id, d_date_time) references Flight(al_name, f_id, d_date_time)
@@ -102,7 +102,7 @@ create table Ticket
 create table Rating
 	(c_email		varchar(20),
 	 f_id			varchar(10),
-	 d_date_time	datetime(0),
+	 d_date_time	varchar(20),
 	 al_name		varchar(25),
 	 rate			varchar(5),
 	 comment		varchar(50),
