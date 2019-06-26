@@ -25,11 +25,11 @@ $r = $db->query($sql);
 
 if($r)
 {
-    header("location:index.html");
+    echo "<script> alert('Register Successful');location.href='login.html' </script>";
 }
 else
 {
-    echo "Fail";
+    echo "<script> alert('Register Failed');location.href='register.html' </script>";
 }
 
 
