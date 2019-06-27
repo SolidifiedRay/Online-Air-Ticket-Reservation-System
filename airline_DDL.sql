@@ -21,12 +21,12 @@ create table Airport
 
 create table Flight
 	(f_id			varchar(10),
-	 d_date_time	datetime(0),
+	 d_date_time	varchar(25),
 	 al_name		varchar(25),
 	 ap_id			varchar(10),
 	 d_airport		varchar(25),
 	 a_airport		varchar(25),
-	 a_date_time	datetime(0),
+	 a_date_time	varchar(25),
 	 base_price		numeric(5,2),
 	 status			varchar(10),
 
