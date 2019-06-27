@@ -58,33 +58,40 @@ EOT;
                   $result = $conn->query($sql);
 
                   if ($result-> num_rows>0){
-                    while ($row = $result -> fetch_assoc()){
-                      
-                      $sql1 = "SELECT seat FROM Flight NATURAL JOIN Airplane WHERE f_id = '{$row["f_id"]}'";
-                      $tot_ticket = $conn->query($sql1);
-                      $sql2 = "SELECT SUM(t_id) FROM Flight NATURAL JOIN Ticket WHERE f_id = '{$row["f_id"]}' and d_date_time='{$row["d_date_time"]}'";
-                      $num_sold = $conn->query($sql2);
-                      $price = ($num_sold/$tot_ticket > 0.7)? 
-
-                      1.2*$row["base_price"]:$row["base_price"];
-                      echo "<tr>
-                              <td class='view-table-td'>".$row["f_id"]."</td>
-                              <td class='view-table-td'>".$row["d_date_time"]."</td>
-                              <td class='view-table-td'>".$row["al_name"]."</td>
-                              <td class='view-table-td'>".$row["ap_id"]."</td>
-                              <td class='view-table-td'>".$row["d_airport"]."</td>
-                              <td class='view-table-td'>".$row["a_airport"]."</td>
-                              <td class='view-table-td'>".$row["a_date_time"]."</td>
-                              <td class='view-table-td'>".$price."</td>
-                              <td class='view-table-td'>".$row["status"]."</td>
-                              <td class='view-table-td'><a href='comment_flight.php?f_id=".$row["f_id"]."&price=".$price."'>"."Comment"."</a></td>
-                              <td class='view-table-td'><a href='purchase_ticket.php?f_id=".$row["f_id"]."&price=".$price."'>"."Purchase"."</a></td>
-                            </tr>";
-                    }
-                  }
-                  else{
-                      echo "0";
-                      $conn->close();
+                          while ($row = $result -> fetch_assoc()){
+                            
+                            $sql1 = "SELECT seat FROM Flight NATURAL JOIN Airplane WHERE f_id = '{$row["f_id"]}'";
+                            $conn1 = $conn->query($sql1);
+                            $tot_ticket = mysqli_fetch_array($conn1);
+            
+                            $sql2 = "SELECT COUNT(t_id) FROM Flight NATURAL JOIN Ticket WHERE f_id = '{$row["f_id"]}' and d_date_time='{$row["d_date_time"]}'";
+                            $conn2 = $conn->query($sql2);
+                            $num_sold = mysqli_fetch_array($conn2);
+                            if ($num_sold[0] != 0){
+                              $percent = $num_sold[0]/$tot_ticket[0];
+                              if($percent > 0.7){
+                                $price = 1.2*$row["base_price"];
+                              }else{
+                                $price = $row["base_price"];
+                              }
+                            }else{
+                              $price = $row["base_price"];
+                            }
+                            echo "<tr>
+                                      <td class='view-table-td'>".$row["f_id"]."</td>
+                                      <td class='view-table-td'>".$row["d_date_time"]."</td>
+                                      <td class='view-table-td'>".$row["al_name"]."</td>
+                                      <td class='view-table-td'>".$row["ap_id"]."</td>
+                                      <td class='view-table-td'>".$row["d_airport"]."</td>
+                                      <td class='view-table-td'>".$row["a_airport"]."</td>
+                                      <td class='view-table-td'>".$row["a_date_time"]."</td>
+                                      <td class='view-table-td'>".number_format($price, 2, '.', ' ')."</td>
+                                      <td class='view-table-td'>"."View Comment"."</td>
+                                      
+                                  </tr>";
+                          }
+                          echo "</table>";
+                          $conn->close();
                   }
 
 print <<<EOT
