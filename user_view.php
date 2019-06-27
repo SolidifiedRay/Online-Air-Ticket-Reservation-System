@@ -58,32 +58,15 @@ EOT;
                           $conn = new MySQLi("localhost","solidifiedray","Ray826589!","solidifiedray") or die("Connect failed: %s\n". $conn -> error);
                           $email = $_SESSION["username"];
                           $date_time = $_SERVER['REQUEST_TIME'];
-                          $sql = "SELECT F.* FROM Flight F Natural Join Ticket T WHERE T.c_email = '{$email}'
-                          and cast(T.d_date_time as datetime) >= now()";                        
+                          $sql = "SELECT F.f_id,F.d_date_time,F.al_name,F.ap_id,F.d_airport,F.a_airport,F.a_date_time,T.sold_price
+                                  FROM Flight F Natural Join Ticket T WHERE T.c_email = '{$email}' and cast(T.d_date_time as datetime) >= now()";                        
                           $result = $conn->query($sql);
                           if ($result-> num_rows>0){
                             while ($row = $result -> fetch_assoc()){
-                              //这里改了（search里不改）
-                              $sql1 = "SELECT seat FROM Flight NATURAL JOIN Airplane WHERE f_id = '{$row["f_id"]}'";
-                              $conn1 = $conn->query($sql1);
-                              $tot_ticket = mysqli_fetch_array($conn1);
-              
-                              $sql2 = "SELECT COUNT(t_id) FROM Flight NATURAL JOIN Ticket WHERE f_id = '{$row["f_id"]}' and d_date_time='{$row["d_date_time"]}'";
-                              $conn2 = $conn->query($sql2);
-                              $num_sold = mysqli_fetch_array($conn2);
-                              //search 里也要改
-                              if ($num_sold[0] != 0){
-                                $percent = $num_sold[0]/$tot_ticket[0];
-                                if($percent > 0.7){
-                                  $price = 1.2*$row["base_price"];
-                                }else{
-                                  $price = $row["base_price"];
-                                }
-                              }else{
-                                $price = $row["base_price"];
-                              }
+
+                                $price = $row["sold_price"];
+
                               //END
-                              
                               echo "<tr>
                                         <td class='view-table-td'>".$row["f_id"]."</td>
                                         <td class='view-table-td'>".$row["d_date_time"]."</td>
@@ -94,9 +77,9 @@ EOT;
                                         <td class='view-table-td'>".$row["a_date_time"]."</td>
                                         <td class='view-table-td'>".number_format($price, 2, '.', ' ')."</td>
                                         <td class='view-table-td'>"."View Comment"."</td>
-                                        
+
                                     </tr>";
-                            }
+                                }
                             echo "</table>";
                           }
                           $conn->close();
