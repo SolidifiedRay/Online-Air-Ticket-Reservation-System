@@ -31,34 +31,47 @@
               <table class="login-table">
                 <tr>
                   <td width="64%" class="login-table-left">
-                    <font class="login-title">Welcome User！</font>
+                    <font class="login-title">Staff Login</font>
                     <hr/>
                     <br/>
-                    <p style="font-size: 22px;">
-                      email:<br/>
-                      name:<br/>
-                      address:<br/>
-                      phone number:<br/>
-                      date of birth:<br/>
-                      passport number:<br/>
-                      passport country:<br/>
-                      passport expiration date:<br/>
-                    </p>
+                    <form class="form-horizontal" role="form" action="staff_login.php" method="post">
+                      <font class="login-subtitle">Username:</font><br/>
+                      <div class="form-group">
+                        <div class="col-sm-10">
+                          <input type="text" class="form-control" id="username" name = "username" placeholder="Please enter email or username">
+                        </div>
+                      </div>
+                      <font class="login-subtitle">Password:</font><br/>
+                      <div class="form-group">
+                        <div class="col-sm-10">
+                          <input type="password" class="form-control" id="password" name="password" placeholder="Please enter password">
+                        </div>
+                      </div>
+                      <br/><br/>
+                      <div class="form-group">
+                        <div class="col-sm-10">
+                          <button type="submit" class="btn btn-default">
+                            <font class="login-subtitle">Login</font>
+                          </button>
+                        </div>
+                      </div>
+                    </form>
                     <br/><br/><br/><br/>
                   </td>
                   <td width="1%"></td>
                   <td width="35%" class="login-table-right">
                     <font class="login-text">
-                      View My flights<br/>
-                      Search for flights<br/>
-                      Purchase tickets<br/>
-                      Give rating and comments on previous flights<br/>
-                      Track My Spending<br/>
-                      Logout<br/>
+                      Don't have an account? <br/><br/>
                     </font>
-                      <br/><br/>
+                    <a href="staff_reg.html">
+                      <font class="login-text">
+                        <u>Click here to create an account right now.</u>
+                      </font>  
+                    </a>
+                    <br/><br/>
+                    <br/><br/>
                     <font class="login-text">
-                      <span class="glyphicon glyphicon-user main-icon" aria-hidden="true"></span><br/><br/>
+                      <span class="glyphicon glyphicon-plane main-icon" aria-hidden="true"></span><br/><br/>
                     </font>
                   </td>
                 </tr>
@@ -71,6 +84,6 @@
 
       <!-- jQuery (Bootstrap 的 JavaScript 插件需要引入 jQuery) -->
       <script src="https://code.jquery.com/jquery.js"></script>
-      <script src="components/navigation.js"></script>
+      <script src="components/navigation.js?v=1.1"></script>
    </body>
 </html>

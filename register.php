@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 $username = $_POST["username"];
 $password = md5($_POST["password"]);
 $name = $_POST["name"];
@@ -21,7 +23,7 @@ if(isset($_SESSION["username"])){
     echo "You are already logged in. ";
     //login.html part TODO (chaneg to homepage when finished)
     echo "You will be redirected in 3 seconds or click <a href=\"login.html\">here</a>.";
-    header("refresh: 3; login.html");
+    header("refresh: 3; user.php");
 }
 else{
     //check if email is already in the database

@@ -15,7 +15,7 @@ else {
   if(isset($_POST["username"]) && isset($_POST["password"])) {
 
     //check if entry exists in database
-    if ($stmt = $mysqli->prepare("select c_email, password from customer where c_email = ? and password = ?")) {
+    if ($stmt = $mysqli->prepare("select user_name, password from staff where user_name = ? and password = ?")) {
       $hashpassword = md5($_POST["password"]);
       $stmt->bind_param("ss", $_POST["username"], $hashpassword);
       $stmt->execute();
@@ -27,8 +27,8 @@ else {
           $_SESSION["REMOTE_ADDR"] = $_SERVER["REMOTE_ADDR"]; //store clients IP address to help prevent session hijack
           $name = $_SESSION["username"];
           echo "Login successful. $name \n";
-          echo "You will be redirected in 3 seconds or click <a href=\"user.php\">here</a>.";
-          header("refresh: 3; user.php");
+          echo "You will be redirected in 3 seconds or click <a href=\"staff.php\">here</a>.";
+          header("refresh: 3; staff.php");
         }
         //if no match then tell them to try again
         else {

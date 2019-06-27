@@ -44,7 +44,7 @@ create table Flight
 create table Staff
 	(user_name		varchar(15),
 	 al_name		varchar(25),
-	 password		varchar(15),
+	 password		varchar(50),
 	 first_name		varchar(10),
 	 last_name		varchar(10),
 	 date_of_birth	date,
