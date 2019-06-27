@@ -101,7 +101,7 @@ EOT;
 
         <!-- jQuery (Bootstrap 的 JavaScript 插件需要引入 jQuery) -->
         <script src="https://code.jquery.com/jquery.js"></script>
-        <script src="components/navigation.js"></script>
+        <script src="components/navigation.js?v=1.1"></script>
      </body>
   </html>
 
