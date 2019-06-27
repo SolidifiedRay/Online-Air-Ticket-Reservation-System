@@ -110,11 +110,20 @@
                         if ($result-> num_rows>0){
                         while ($row = $result -> fetch_assoc()){
                             $sql1 = "SELECT seat FROM Flight NATURAL JOIN Airplane WHERE f_id = '{$row["f_id"]}'";
-                            $tot_ticket = $conn->query($sql1);
-                            $sql2 = "SELECT SUM(t_id) FROM Flight NATURAL JOIN Ticket WHERE f_id = '{$row["f_id"]}' and d_date_time='{$row["d_date_time"]}'";
-                            $num_sold = $conn->query($sql2);
-                            $price = ($num_sold/$tot_ticket > 0.7)? 
-                            1.2*$row["base_price"]:$row["base_price"];
+                            $conn1 = $conn->query($sql1);
+                            $tot_ticket = mysqli_fetch_array($conn1);
+            
+                            $sql2 = "SELECT COUNT(t_id) FROM Flight NATURAL JOIN Ticket WHERE f_id = '{$row["f_id"]}' and d_date_time='{$row["d_date_time"]}'";
+                            $conn2 = $conn->query($sql2);
+                            $num_sold = mysqli_fetch_array($conn2);
+
+                            if ($num_sold[0] != 0){
+                              $price = ($tot_ticket[0]/$num_sold[0] > 0.7)?1.2*$row["base_price"]:$row["base_price"];
+                            }else{
+                              $price = $row["base_price"];
+                            }
+
+                            
                             echo "<tr>
                                       <td class='view-table-td'>".$row["f_id"]."</td>
                                       <td class='view-table-td'>".$row["d_date_time"]."</td>
@@ -123,7 +132,7 @@
                                       <td class='view-table-td'>".$row["d_airport"]."</td>
                                       <td class='view-table-td'>".$row["a_airport"]."</td>
                                       <td class='view-table-td'>".$row["a_date_time"]."</td>
-                                      <td class='view-table-td'>".$price."</td><td>".$row["status"]."</td>
+                                      <td class='view-table-td'>".number_format($price, 2, '.', ' ')."</td><td>".$row["status"]."</td>
                                       <td class='view-table-td'>"."View Comment"."</td>
                                       <td class='view-table-td'>"."Purchase"."</td>
                                   </tr>";
