@@ -77,8 +77,8 @@ EOT;
                               <td class='view-table-td'>".$row["a_date_time"]."</td>
                               <td class='view-table-td'>".$price."</td>
                               <td class='view-table-td'>".$row["status"]."</td>
-                              <td class='view-table-td'>"."View Comment"."</td>
-                              <td class='view-table-td'>"."Purchase"."</td>
+                              <td class='view-table-td'><a href='comment_flight.php?f_id=".$row["f_id"]."&price=".$price."'>"."Comment"."</a></td>
+                              <td class='view-table-td'><a href='purchase_ticket.php?f_id=".$row["f_id"]."&price=".$price."'>"."Purchase"."</a></td>
                             </tr>";
                     }
                   }
