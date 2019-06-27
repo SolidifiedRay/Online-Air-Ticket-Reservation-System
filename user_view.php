@@ -50,7 +50,7 @@
                     <?PHP
                       session_start();
                       if($_SESSION["username"]){
-                        $conn = new mysqli("localhost","root","","Air_Ticket_Reservation_System") or die("Connect failed: %s\n". $conn -> error);
+                        $conn = new MySQLi("localhost","solidifiedray","Ray826589!","solidifiedray") or die("Connect failed: %s\n". $conn -> error);
                         $email = $_SESSION["username"];
                         $date_time = $_SERVER['REQUEST_TIME'];
                         $sql = "SELECT F.* FROM Flight F Natural Join Ticket T WHERE T.c_email = '{$email}'
