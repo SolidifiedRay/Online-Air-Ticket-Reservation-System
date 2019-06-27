@@ -83,7 +83,7 @@
                       <td width="1%"></td>
                       <td width="35%" class="login-table-right">
                         <font class="login-text">
-                          View My flights<br/>
+                          <a href="user_view.php"><font class="login-text">View My flights<font class="login-text"><br/></a>
                           <a href="search.php"><font class="login-text">Search for flights<font class="login-text"><br/></a>
                           <a href="search.php"><font class="login-text">Purchase tickets<br/><font class="login-text"></a>
                           <a href="search.php"><font class="login-text">Give rating and comments on previous flights<br/><font class="login-text"></a>
