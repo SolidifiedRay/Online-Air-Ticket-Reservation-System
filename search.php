@@ -54,7 +54,7 @@
                       <font class="login-subtitle">Return Date:</font><br/>
                       <div class="form-group">
                         <div class="col-sm-10">
-                          <input type="password" class="form-control" id="r_date" name="r_date" placeholder="Please enter return date if you want to search round trip or leave it blank">
+                          <input type="text" class="form-control" id="r_date" name="r_date" placeholder="Please enter return date if you want to search round trip or leave it blank">
                         </div>
                       </div>
                       <br/><br/>
