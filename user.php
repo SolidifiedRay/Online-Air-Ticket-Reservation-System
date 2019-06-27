@@ -1,5 +1,10 @@
 <?php
     session_start();
+
+    if($_SESSION["type"]){
+       echo "<script> alert('Moving to staff page');location.href='staff.php' </script>";
+    }
+
     if($_SESSION["username"]){
       $email = $_SESSION["username"];
     }

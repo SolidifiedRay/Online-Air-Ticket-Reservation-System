@@ -24,8 +24,9 @@ else {
         if ($stmt->fetch()) {
           $_SESSION["username"] = $username;
           $_SESSION["password"] = $password;
+          $_SESSION["type"] = $username;
           $_SESSION["REMOTE_ADDR"] = $_SERVER["REMOTE_ADDR"]; //store clients IP address to help prevent session hijack
-          $name = $_SESSION["username"];
+          $name = $_SESSION["type"];
           echo "Login successful. $name \n";
           echo "You will be redirected in 3 seconds or click <a href=\"staff.php\">here</a>.";
           header("refresh: 3; staff.php");
