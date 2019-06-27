@@ -17,7 +17,6 @@ else {
       $hashpassword = md5($_POST["password"]);
       $stmt->bind_param("ss", $_POST["username"], $hashpassword);
       $stmt->execute();
-      echo "{$_POST["username"]} {$hashpassword}";
       $stmt->bind_result($username, $password);
         //if there is a match set session variables and send user to homepage
         if ($stmt->fetch()) {
