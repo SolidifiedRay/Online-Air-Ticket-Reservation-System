@@ -118,7 +118,12 @@
                             $num_sold = mysqli_fetch_array($conn2);
 
                             if ($num_sold[0] != 0){
-                              $price = ($tot_ticket[0]/$num_sold[0] > 0.7)?1.2*$row["base_price"]:$row["base_price"];
+                              $percent = $num_sold[0]/$tot_ticket[0];
+                              if($percent > 0.7){
+                                $price = 1.2*$row["base_price"];
+                              }else{
+                                $price = $row["base_price"];
+                              }
                             }else{
                               $price = $row["base_price"];
                             }
