@@ -31,7 +31,7 @@
       <div class="content-box">
           <br/><br/><br/><br/>
           <div class="container" style="width: 100%">
-          <h3>Top 3 Destination for Last Three Month</h3>
+          <h3><font color="white">Top 3 Destination for Last Three Month</font></h3>
         </div>
             <div class="row" style="width: 99%; margin:0 auto;">
               <table class="table table-hover view-table" >
@@ -49,10 +49,10 @@ EOT;
 
                 <?PHP
                   session_start();
-                  $conn = new mysqli("localhost","root","","Air_Ticket_Reservation_System") or die("Connect failed: %s\n". $conn -> error);
+                  $conn = new mysqli("localhost","solidifiedray","Ray826589!","solidifiedray") or die("Connect failed: %s\n". $conn -> error);
                   if($_SESSION["username"]){
                     $username = $_SESSION["username"];
-                    $conn = new MySQLi("localhost","root","","Air_Ticket_Reservation_System");
+                    $conn = new MySQLi("localhost","solidifiedray","Ray826589!","solidifiedray");
                     $sql = "SELECT TOP 3 COUNT(T.t_id) as countnum, F.a_airport, A.city
                              FROM Staff S NATURAL JOIN Flight F NATURAL JOIN Ticket T, Airport A
                              WHERE A.airport_name = F.a_airport and S.user_name = '{$username}' 
@@ -71,7 +71,6 @@ EOT;
                     echo "</table>";
                     }
                     else{
-                        echo "Flight Unfound";
                         }
                     $conn->close();
                     }
@@ -93,7 +92,7 @@ EOT;
     <div class="content-box">
     <br/><br/><br/><br/>
     <div class="container" style="width: 100%">
-          <h3>Top 3 Destination Last Year</h3>
+          <h3><font color="white">Top 3 Destination Last Year</font></h3>
         </div>
             <div class="row" style="width: 99%; margin:0 auto;">
               <table class="table table-hover view-table" >
@@ -111,10 +110,10 @@ EOT;
 ?>
 
               <?PHP
-                  $conn = new mysqli("localhost","root","","Air_Ticket_Reservation_System") or die("Connect failed: %s\n". $conn -> error);
+                  $conn = new mysqli("localhost","solidifiedray","Ray826589!","solidifiedray") or die("Connect failed: %s\n". $conn -> error);
                   if($_SESSION["username"]){
                     $username = $_SESSION["username"];
-                    $conn = new MySQLi("localhost","root","","Air_Ticket_Reservation_System");
+                    $conn = new MySQLi("localhost","solidifiedray","Ray826589!","solidifiedray");
                     $sql = "SELECT COUNT(T.t_id) as countnum, F.a_airport, A.city
                              FROM Staff S NATURAL JOIN Flight F NATURAL JOIN Ticket T, Airport A
                              WHERE A.airport_name = F.a_airport and S.user_name = '{$username}' 
@@ -133,7 +132,6 @@ EOT;
                     echo "</table>";
                     }
                     else{
-                        echo "Flight Unfound";
                         }
                     $conn->close();
                     }

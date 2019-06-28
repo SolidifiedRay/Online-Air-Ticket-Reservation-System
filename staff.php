@@ -73,14 +73,14 @@
                         <font class="login-text">
                           <a href="staff_view.php"><font class="login-text">View flights<font class="login-text"><br/></a>
                           <a href="add_flight.html"><font class="login-text">Create new flights</font></a><br/>
-                          Change flight's status<br/>
-                          Add airplane<br/>
-                          Add new airport<br/>
+                          <a href="change_status.html"><font class="login-text">Change flight's status</font></a><br/>
+                          <a href="add_airplane.html"><font class="login-text">Add airplane</font></a><br/>
+                          <a href="add_airport.html"><font class="login-text">Add new airport</font></a><br/>
                           <a href="rating_view.php"><font class="login-text">View flight ratings<font class="login-text"><br/></a>
                           <a href="frequent.php"><font class="login-text">View frequent Customer<font class="login-text"><br/></a>
                           View reports<br/>
                           View quarterly revenue earned<br/>
-                        <a href=".php"><font class="login-text">View frequent Customer<font class="login-text"><br/></a>
+                          <a href="top_dest.php"><font class="login-text">View Top destinations<font class="login-text"><br/></a>
                           <a href="logout.php"><font class="login-text"><u>Logout</u></font></a><br/>
                         </font>
                           <br/><br/>
