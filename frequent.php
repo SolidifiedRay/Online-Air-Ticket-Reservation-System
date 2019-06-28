@@ -31,7 +31,7 @@
       <div class="content-box">
           <br/><br/><br/><br/>
           <div class="container" style="width: 100%">
-          <h3>Frequent Customer Information</h3>
+          <h3><font color="white">Frequent Customer Information</font></h3>
         </div>
             <div class="row" style="width: 99%; margin:0 auto;">
               <table class="table table-hover view-table" >
@@ -60,7 +60,7 @@ EOT;
                         session_start();
                         if($_SESSION["username"]){
                             $username = $_SESSION["username"];
-                            $conn = new MySQLi("localhost","root","","Air_Ticket_Reservation_System");
+                            $conn = new MySQLi("localhost","solidifiedray","Ray826589!","solidifiedray");
                             $sql = "SELECT COUNT(Ticket.t_id) as countnum,Ticket.c_email 
                                     FROM Staff NATURAL JOIN Flight F NATURAL JOIN Ticket 
                                     WHERE Staff.user_name = '{$username}' and
@@ -98,7 +98,6 @@ EOT;
                             echo "</table>";
                             $conn->close();
                       }else{
-                          echo "Customer Unfound";
                       }
                     }else{
                         echo "<script> alert('You need to login first');location.href='login.html' </script>";
@@ -117,7 +116,7 @@ EOT;
     <div class="content-box">
     <br/><br/><br/><br/>
     <div class="container" style="width: 100%">
-          <h3>Flights Booked By Frequent Customer</h3>
+          <h3><font color="white">Flights Booked By Frequent Customer</font></h3>
         </div>
             <div class="row" style="width: 99%; margin:0 auto;">
               <table class="table table-hover view-table" >
@@ -144,10 +143,10 @@ EOT;
 ?>
 
               <?PHP
-                  $conn = new mysqli("localhost","root","","Air_Ticket_Reservation_System") or die("Connect failed: %s\n". $conn -> error);
+                  $conn = new mysqli("localhost","solidifiedray","Ray826589!","solidifiedray") or die("Connect failed: %s\n". $conn -> error);
                   if($_SESSION["username"]){
                     $username = $_SESSION["username"];
-                    $conn = new MySQLi("localhost","root","","Air_Ticket_Reservation_System");
+                    $conn = new MySQLi("localhost","solidifiedray","Ray826589!","solidifiedray");
                     $sql1 = "SELECT COUNT(Ticket.t_id) as countnum,Ticket.c_email 
                             FROM Staff NATURAL JOIN Flight F NATURAL JOIN Ticket 
                             WHERE Staff.user_name = '{$username}' 
@@ -183,7 +182,6 @@ EOT;
                       echo "</table>";
                       }
                       else{
-                          echo "Flight Unfound";
                           }
                       $conn->close();
                       }
