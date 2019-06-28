@@ -80,7 +80,7 @@
                           <a href="frequent.php"><font class="login-text">View frequent Customer<font class="login-text"><br/></a>
                           View reports<br/>
                           View quarterly revenue earned<br/>
-                          View Top destinations<br/>
+                        <a href=".php"><font class="login-text">View frequent Customer<font class="login-text"><br/></a>
                           <a href="logout.php"><font class="login-text"><u>Logout</u></font></a><br/>
                         </font>
                           <br/><br/>
