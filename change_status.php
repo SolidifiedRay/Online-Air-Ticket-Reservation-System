@@ -15,9 +15,9 @@ if(isset($_SESSION["username"])){
             $stmt->execute();
             $stmt->bind_result($temp);
             if ($stmt->fetch()) {
+                $stmt->close();
                 //2.sql statement
                 $sql = "UPDATE flight SET status='{$status}' WHERE f_id='{$f_id}'";
-                echo $sql;
                 //3.execute
                 $r = $db->query($sql);
                 if($r)
@@ -33,7 +33,6 @@ if(isset($_SESSION["username"])){
                 echo "Flight doesn't exit. ";
                 echo "You will be redirected in 3 seconds or click <a href=\"change_status.html\">here</a>.";
                 header("refresh: 3; change_status.html");
-                $stmt->close();
             }
     }
 }
