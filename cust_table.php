@@ -29,7 +29,7 @@
         <div class="content-box">
             <br/><br/><br/><br/>
             <div class="container" style="width: 100%">
-            <h3>Customer</h3>
+            <h3><font color="white">Customer</font></h3>
               <div class="row" style="width: 99%; margin:0 auto;">
                 <table class="table table-hover view-table" >
                   <thead style="background-color: #a1a1a1">

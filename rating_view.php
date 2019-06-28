@@ -31,7 +31,7 @@
             <div class="container" style="width: 100%">
               <div class="row" style="width: 99%; margin:0 auto;">
                 <table class="table table-hover view-table" >
-                <h3>Flights & Ratings</h3>
+                <h3><font color="white">Flights & Ratings</font></h3>
                   <thead style="background-color: #a1a1a1">
                     <tr>
                       <th class="view-table-head">Flight Number</th>
@@ -82,7 +82,7 @@ EOT;
 
 
 
-                <h3>Comment Section</h3>
+                <h3><font color="white">Comment Section</font></h3>
                 <table class="table table-hover view-table" >
                   <thead style="background-color: #a1a1a1">
                     <tr>

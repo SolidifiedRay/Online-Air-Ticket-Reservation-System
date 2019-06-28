@@ -30,7 +30,7 @@
         <div class="content-box">
             <br/><br/><br/><br/>
             <div class="container" style="width: 100%">
-            <h3>Future Flight</h3>
+            <h3><font color="white">Future Flight</font></h3>
           </div>
               <div class="row" style="width: 99%; margin:0 auto;">
                 <table class="table table-hover view-table" >
@@ -59,9 +59,9 @@ EOT;
                           $conn = new mysqli("localhost","solidifiedray","Ray826589!","solidifiedray") or die("Connect failed: %s\n". $conn -> error);
                           $username = $_SESSION["username"];
                           $sql = "SELECT F.* FROM Flight F Natural Join Staff S WHERE S.user_name = '{$username}'
-                          and cast(F.d_date_time as datetime) between now()and DATE_ADD(NOW(), INTERVAL +60 DAY) ";                        
+                          and cast(F.d_date_time as datetime) between now()and DATE_ADD(NOW(), INTERVAL +30 DAY) ";                        
                           $result = $conn->query($sql);
-
+                          $num = $result -> num_rows;
                           if ($result-> num_rows>0){
                             while ($row = $result -> fetch_assoc()){
                               echo "<tr>
@@ -103,7 +103,7 @@ EOT;
         <div class="content-box">
             <br/><br/><br/><br/>
             <div class="container" style="width: 100%">
-            <h3>Search Flight</h3>
+            <h3><font color="white">Search Flight</font></h3>
               <div class="row" style="width: 99%; margin:0 auto;">
                 <table class="search-table">
                   <tr>
