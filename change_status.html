@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+   <head>
+      <!-- Required meta tags -->
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+      <title>Online Air Ticket Reservation System</title>
+      <link rel="shortcut icon" href="img/icon/web_icon.png" type="image/x-icon"/>
+      <link href="files/css/index.css" rel="stylesheet" type="text/css">
+
+      <!-- 引入 Bootstrap -->
+      <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+      <!-- HTML5 Shiv 和 Respond.js 用于让 IE8 支持 HTML5元素和媒体查询 -->
+      <!-- 注意： 如果通过 file://  引入 Respond.js 文件，则该文件无法起效果 -->
+      <!--[if lt IE 9]>
+         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+         <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+      <![endif]-->
+   </head>
+   <body background="img/background.jpg" class="index-background">
+
+      <div id="nav">
+          <public-header></public-header>
+      </div> 
+
+      <div class="content-box">
+          <br/><br/><br/><br/>
+          <div class="container" style="width: 100%">
+            <div class="row">
+              <table class="login-table">
+                <tr>
+                  <td width="90%" class="login-table-left">
+                    <font class="login-title">Change flight status</font>
+                    <hr/>
+                    <br/>
+                    <form class="form-horizontal" role="form" action="change_status.php" method="post">
+                      <font class="login-subtitle">Flight ID:</font><br/>
+                      <div class="form-group">
+                        <div class="col-sm-10">
+                          <input type="text" class="form-control" id="f_id" name="f_id" placeholder="Please enter flight id">
+                        </div>
+                      </div>
+                      <font class="login-subtitle">Status:</font><br/>
+                      <div class="form-group">
+                        <div class="col-sm-10">
+                          <input type="text" class="form-control" id="status" name="status" placeholder="Please enter status">
+                        </div>
+                      </div>
+                        
+                      <br/><br/>
+                      <div class="form-group">
+                        <div class="col-sm-10">
+                          <button type="submit" class="btn btn-default">
+                            <font class="login-subtitle">Submit</font>
+                          </button>
+                        </div>
+                      </div>
+                    </form>
+
+                    <br/><br/><br/><br/>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+          
+          <br/><br/><br/><br/><br/><br/><br/>
+      </div>
+
+      <!-- jQuery (Bootstrap 的 JavaScript 插件需要引入 jQuery) -->
+      <script src="https://code.jquery.com/jquery.js"></script>
+      <script src="components/navigation.js?v=1.1"></script>
+   </body>
+</html>
