@@ -101,9 +101,14 @@
                         $r_date = $_POST["r_date"];
 
                         if(!empty($_POST["d_airport"])){
-                        $sql = "SELECT * FROM Flight WHERE 
-                        (d_airport = '{$d_airport}' and a_airport = '{$a_airport}' and d_date_time like'%{$d_date}%'
-                        or a_airport = '{$d_airport}' and d_airport = '{$a_airport}' and d_date_time like'%{$r_date}%')";
+                        if (!empty($r_date)){
+                            $sql = "SELECT * FROM Flight WHERE 
+                            d_airport = '{$d_airport}' and a_airport = '{$a_airport}' and d_date_time like'%{$d_date}%'
+                            or (a_airport = '{$d_airport}' and d_airport = '{$a_airport}' and d_date_time like'%{$r_date}%')";
+                          }else{
+                            $sql = "SELECT * FROM Flight WHERE 
+                            d_airport = '{$d_airport}' and a_airport = '{$a_airport}' and d_date_time like'%{$d_date}%'";
+                          }
 
 
                         $result = $conn->query($sql);
