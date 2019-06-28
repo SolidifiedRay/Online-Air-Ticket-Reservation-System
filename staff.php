@@ -77,7 +77,7 @@
                           Add airplane<br/>
                           Add new airport<br/>
                         <a href="rating_view.php"><font class="login-text">View flight ratings<font class="login-text"><br/></a>
-                          View frequent customers<br/>
+                        <a href="frequent.php"><font class="login-text">View frequent Customer<font class="login-text"><br/></a>
                           View reports<br/>
                           View quarterly revenue earned<br/>
                           View Top destinations<br/>
