@@ -71,12 +71,12 @@
                       <td width="1%"></td>
                       <td width="35%" class="login-table-right">
                         <font class="login-text">
-                          View flights<br/>
+                        <a href="staff_view.php"><font class="login-text">View flights<font class="login-text"><br/></a>
                           Create new flights<br/>
                           Change flight's status<br/>
                           Add airplane<br/>
                           Add new airport<br/>
-                          View flight ratings<br/>
+                        <a href="rating_view.php"><font class="login-text">View flight ratings<font class="login-text"><br/></a>
                           View frequent customers<br/>
                           View reports<br/>
                           View quarterly revenue earned<br/>
