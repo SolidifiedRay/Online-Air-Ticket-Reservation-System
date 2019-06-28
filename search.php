@@ -1,3 +1,7 @@
+<?php
+  
+  print <<<EOT
+
 <!doctype html>
 <html lang="en">
    <head>
@@ -91,8 +95,9 @@
                 <tbody>
                   
                     </form>
-
-                    <?PHP
+EOT;
+?>
+<?PHP
                         $conn = new mysqli("localhost","solidifiedray","Ray826589!","solidifiedray") or die("Connect failed: %s\n". $conn -> error);
 
                         $d_airport = $_POST["d_airport"];
@@ -154,7 +159,10 @@
                             }
                         $conn->close();
                         }
-                    ?>
+?>
+<?php
+  
+  print <<<EOT
                 </tbody>
               </table>
             </div>
@@ -168,3 +176,5 @@
       <script src="components/navigation.js?v=1.1"></script>
    </body>
 </html>
+EOT;
+?>
