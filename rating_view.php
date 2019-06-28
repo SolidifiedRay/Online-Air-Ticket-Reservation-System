@@ -45,7 +45,7 @@
                       if($_SESSION["username"]){
                         $conn = new mysqli("localhost","root","","Air_Ticket_Reservation_System") or die("Connect failed: %s\n". $conn -> error);
                         $username = $_SESSION["username"];
-                        $sql = "SELECT R.f_id, AVG(rate),R.d_date_time as average_rate 
+                        $sql = "SELECT R.f_id, AVG(rate) as average_rate,R.d_date_time 
                                 FROM Rating R Natural Join Flight F Natural Join Staff S
                                 Where S.user_name = '{$username}'
                                 Group BY f_id";                        
