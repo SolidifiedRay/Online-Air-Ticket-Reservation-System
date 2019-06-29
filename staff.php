@@ -79,7 +79,7 @@
                           <a href="rating_view.php"><font class="login-text">View flight ratings<font class="login-text"><br/></a>
                           <a href="frequent.php"><font class="login-text">View frequent Customer<font class="login-text"><br/></a>
                           View reports<br/>
-                          View quarterly revenue earned<br/>
+                          <a href="revenue.php"><font class="login-text">View quarterly revenue earned</font></a><br/>
                           <a href="top_dest.php"><font class="login-text">View Top destinations<font class="login-text"><br/></a>
                           <a href="logout.php"><font class="login-text"><u>Logout</u></font></a><br/>
                         </font>
