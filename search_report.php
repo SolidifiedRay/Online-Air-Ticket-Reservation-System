@@ -26,7 +26,7 @@
             <br/><br/><br/><br/>
             <div class="container" style="width: 100%">
               <div class="row" style="width: 99%; margin:0 auto;">
-                <font color="white"><h3>Check Number of Ticket Sold (Monthly)</h3></font><br/>
+                <font color="white"><h3>Search Result</h3></font><br/>
                 <table class="search-table">
                   <tr>
                     <td class="search-table-td">
