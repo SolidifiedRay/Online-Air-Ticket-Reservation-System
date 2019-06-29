@@ -25,7 +25,7 @@
         <div class="content-box">
             <br/><br/><br/><br/>
             <div class="container" style="width: 100%">
-            <h3>Track Your Spending</h3>
+            <font color="white"><h3>Track Your Spending</h3></font><br/>
               <div class="row" style="width: 99%; margin:0 auto;">
                 <table class="search-table">
                   <tr>
@@ -57,12 +57,12 @@
                 </table>
 <?php
     session_start();
-    $conn = new mysqli("localhost","root","","Air_Ticket_Reservation_System") or die("Connect failed: %s\n". $conn -> error);
+    $conn = new mysqli("localhost","solidifiedray","Ray826589!","solidifiedray") or die("Connect failed: %s\n". $conn -> error);
     if($_SESSION["username"]){
-        $conn = new MySQLi("localhost","root","","Air_Ticket_Reservation_System");
+        $conn = new MySQLi("localhost","solidifiedray","Ray826589!","solidifiedray");
         $username = $_SESSION["username"];
-        $start = $_POST["start"]??'';
-        $end = $_POST["end"]??'';
+        $start = $_POST["start"];
+        $end = $_POST["end"];
         if(!empty($_POST["start"])||!empty($_POST["end"])){
             $dataPoints3 = array();
             $sql3 = "SELECT MONTHNAME(cast(T.purchase_date_time as datetime)) as mon, SUM(sold_price) as num 
@@ -114,14 +114,15 @@
             <div class="row" style="width: 99%; margin:0 auto;">
               <div id="chartContainer3" style="height: 370px; width: 100%;"></div>
             </div>
+            <br/><br/>
+            <a href="track_spending.php">
+              <font class="login-text"> <object align="right">
+              <u>BACK</u>
+              </font>  
+            </a>
+            <br/><br/>
           </div>
-                <a href="track_spending.php">
-                  <font class="login-text"> <object align="right">
-                  <u>BACK</u>
-                  </font>  
-                </a>
-              </div>
-            </div>             
+      </div>             
 
       <!-- jQuery (Bootstrap 的 JavaScript 插件需要引入 jQuery) -->
       <script src="https://code.jquery.com/jquery.js"></script>

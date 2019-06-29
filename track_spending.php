@@ -1,9 +1,9 @@
 <?php
     session_start();
-    $conn = new mysqli("localhost","root","","Air_Ticket_Reservation_System") or die("Connect failed: %s\n". $conn -> error);
+    $conn = new mysqli("localhost","solidifiedray","Ray826589!","solidifiedray") or die("Connect failed: %s\n". $conn -> error);
     if($_SESSION["username"]){
         $username = $_SESSION["username"];
-        $conn = new MySQLi("localhost","root","","Air_Ticket_Reservation_System");
+        $conn = new MySQLi("localhost","solidifiedray","Ray826589!","solidifiedray");
         //check last six month
         $dataPoints = array();
         $sql = "SELECT MONTHNAME(cast(T.purchase_date_time as datetime)) as mon, SUM(sold_price) as num 
@@ -85,21 +85,21 @@
               <?php echo "<font class='login-text'>Total: $".$total_amt." </font><br/>"; ?>
               <div id="chartContainer1" style="height: 370px; width: 100%;"></div>
             </div>
-          </div>
-
-          <a href="search_spending.php">
-                  <font class="login-text"> <object align="right">
-                  <u>SEARCH</u>
-                  </font>  
+            <br/><br/>
+            <a href="search_spending.php">
+              <font class="login-text"> <object align="right">
+              <u>SEARCH</u>
+              </font>  
             </a>
-            <br>
-                <a href="user.php">
-                  <font class="login-text"> <object align="right">
-                  <u>BACK</u>
-                  </font>  
-                </a>
-              </div>
-            </div>             
+            <br/>
+            <a href="user.php">
+              <font class="login-text"> <object align="right">
+              <u>BACK</u>
+              </font>  
+            </a>
+            <br/><br/>
+          </div>
+      </div>             
 
       <!-- jQuery (Bootstrap 的 JavaScript 插件需要引入 jQuery) -->
       <script src="https://code.jquery.com/jquery.js"></script>
