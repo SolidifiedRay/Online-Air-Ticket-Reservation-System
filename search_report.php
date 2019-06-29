@@ -25,8 +25,8 @@
         <div class="content-box">
             <br/><br/><br/><br/>
             <div class="container" style="width: 100%">
-            <h3>Check Number of Ticket Sold (Monthly)</h3>
               <div class="row" style="width: 99%; margin:0 auto;">
+                <font color="white"><h3>Check Number of Ticket Sold (Monthly)</h3></font><br/>
                 <table class="search-table">
                   <tr>
                     <td class="search-table-td">
@@ -57,18 +57,18 @@
                 </table>
 <?php
     session_start();
-    $conn = new mysqli("localhost","root","","Air_Ticket_Reservation_System") or die("Connect failed: %s\n". $conn -> error);
+    $conn = new mysqli("localhost","solidifiedray","Ray826589!","solidifiedray") or die("Connect failed: %s\n". $conn -> error);
     if($_SESSION["username"]){
-        $conn = new MySQLi("localhost","root","","Air_Ticket_Reservation_System");
+        $conn = new MySQLi("localhost","solidifiedray","Ray826589!","solidifiedray");
         $username = $_SESSION["username"];
-        $start = $_POST["start"]??'';
-        $end = $_POST["end"]??'';
+        $start = $_POST["start"];
+        $end = $_POST["end"];
         if(!empty($_POST["start"])||!empty($_POST["end"])){
             $dataPoints3 = array();
-            $sql3 = "SELECT MONTHNAME(cast(F.d_date_time as datetime)) as mon, count(t_id) as num 
-                    FROM Staff S NATURAL JOIN Flight F NATURAL JOIN Ticket T
+            $sql3 = "SELECT MONTHNAME(cast(T.purchase_date_time as datetime)) as mon, count(t_id) as num 
+                    FROM Staff S NATURAL JOIN Ticket T
                     WHERE S.user_name = '{$username}' 
-                    and cast(F.d_date_time as datetime) BETWEEN cast('{$start}' as datetime) and cast('{$end}' as datetime)
+                    and cast(T.purchase_date_time as datetime) BETWEEN cast('{$start}' as datetime) and cast('{$end}' as datetime)
                     Group by mon";
             $result3 = $conn->query($sql3);
             while ($row3 = $result3 -> fetch_assoc()) {
@@ -83,7 +83,7 @@
         var chart3 = new CanvasJS.Chart("chartContainer3",{
             animationEnabled: true,
                 title:{
-                    text: "TOTAL NUMBER OF TICKET SOLD LAST YEAR"
+                    text: "TICKET SOLD MONTHLY"
                 },
                 axisY: {
                     title: "Number"
@@ -115,11 +115,13 @@
               <div id="chartContainer3" style="height: 370px; width: 100%;"></div>
             </div>
           </div>
+              <br/><br/>
                 <a href="progress_report.php".php">
                   <font class="login-text"> <object align="right">
                   <u>BACK</u>
                   </font>  
                 </a>
+              <br/><br/>
               </div>
             </div>             
 

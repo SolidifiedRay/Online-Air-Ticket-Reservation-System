@@ -78,7 +78,7 @@
                           <a href="add_airport.html"><font class="login-text">Add new airport</font></a><br/>
                           <a href="rating_view.php"><font class="login-text">View flight ratings<font class="login-text"><br/></a>
                           <a href="frequent.php"><font class="login-text">View frequent Customer<font class="login-text"><br/></a>
-                          <a href="progress_report.php"><font class="login-text">View frequent Customer<font class="login-text"><br/></a>
+                          <a href="progress_report.php"><font class="login-text"> View reports<font class="login-text"><br/></a>
                           <a href="revenue.php"><font class="login-text">View quarterly revenue earned</font></a><br/>
                           <a href="top_dest.php"><font class="login-text">View Top destinations<font class="login-text"><br/></a>
                           <a href="logout.php"><font class="login-text"><u>Logout</u></font></a><br/>

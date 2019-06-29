@@ -1,15 +1,15 @@
 <?php
     session_start();
-    $conn = new mysqli("localhost","root","","Air_Ticket_Reservation_System") or die("Connect failed: %s\n". $conn -> error);
+    $conn = new mysqli("localhost","solidifiedray","Ray826589!","solidifiedray") or die("Connect failed: %s\n". $conn -> error);
     if($_SESSION["username"]){
         $username = $_SESSION["username"];
-        $conn = new MySQLi("localhost","root","","Air_Ticket_Reservation_System");
+        $conn = new MySQLi("localhost","solidifiedray","Ray826589!","solidifiedray");
         //check last year
         $dataPoints = array();
-        $sql = "SELECT MONTHNAME(cast(F.d_date_time as datetime)) as mon, count(t_id) as num 
-                FROM Staff S NATURAL JOIN Flight F NATURAL JOIN Ticket T
-                WHERE S.user_name = '{$username}' 
-                and YEAR(cast(F.d_date_time as datetime))=YEAR(CURDATE())-1
+        $sql = "SELECT MONTHNAME(cast(T.purchase_date_time as datetime)) as mon, count(T.t_id) as num 
+                FROM Staff S NATURAL JOIN Ticket T 
+                WHERE S.user_name = '{$username}' and 
+                YEAR(cast(T.purchase_date_time as datetime))=YEAR(CURDATE())-1 
                 Group by mon";
         $result = $conn->query($sql);
         while ($row = $result -> fetch_assoc()) {
@@ -17,10 +17,10 @@
         }
         //check last month
         $dataPoints2 = array();
-        $sql2 = "SELECT MONTHNAME(cast(F.d_date_time as datetime)) as mon, count(t_id) as num 
-                FROM Staff S NATURAL JOIN Flight F NATURAL JOIN Ticket T
-                WHERE S.user_name = '{$username}' 
-                and MONTH(cast(F.d_date_time as datetime))= MONTH(CURDATE())-1
+        $sql2 = "SELECT MONTHNAME(cast(T.purchase_date_time as datetime)) as mon, count(T.t_id) as num 
+                FROM Staff S NATURAL JOIN Ticket T 
+                WHERE S.user_name = '{$username}' and 
+                MONTH(cast(T.purchase_date_time as datetime))=MONTH(CURDATE())-1 
                 Group by mon";
         $result2 = $conn->query($sql2);
         while ($row2 = $result2 -> fetch_assoc()) {
@@ -110,20 +110,20 @@
               <div id="chartContainer2" style="height: 370px; width: 100%;"></div>
             </div>
           </div>
-
+          <br/><br/>
           <a href="search_report.php".php">
-                  <font class="login-text"> <object align="right">
-                  <u>SEARCH</u>
-                  </font>  
-            </a>
-            <br>
-                <a href="staff.php">
-                  <font class="login-text"> <object align="right">
-                  <u>BACK</u>
-                  </font>  
-                </a>
-              </div>
-            </div>             
+            <font class="login-text"> <object align="right">
+            <u>SEARCH</u>
+            </font>  
+          </a>
+            <br/>
+          <a href="staff.php">
+            <font class="login-text"> <object align="right">
+            <u>BACK</u>
+            </font>  
+          </a>
+          <br/><br/>
+      </div>            
 
       <!-- jQuery (Bootstrap 的 JavaScript 插件需要引入 jQuery) -->
       <script src="https://code.jquery.com/jquery.js"></script>
