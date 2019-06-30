@@ -106,7 +106,7 @@ create table Rating
 	 d_date_time	varchar(20),
 	 al_name		varchar(25),
 	 rate			varchar(5),
-	 comment		varchar(50),
+	 comment		varchar(200),
 
 	 primary key (c_email, f_id, d_date_time, al_name),
 	 foreign key (c_email) references Customer(c_email)
