@@ -100,12 +100,11 @@ EOT;
 <?PHP
                         $conn = new mysqli("localhost","solidifiedray","Ray826589!","solidifiedray") or die("Connect failed: %s\n". $conn -> error);
 
-                        $d_airport = $_POST["d_airport"];
-                        $a_airport = $_POST["a_airport"];
-                        $d_date = $_POST["d_date"];
-                        $r_date = $_POST["r_date"];
-
                         if(!empty($_POST["d_airport"])){
+                          $d_airport = $_POST["d_airport"];
+                          $a_airport = $_POST["a_airport"];
+                          $d_date = $_POST["d_date"];
+                          $r_date = $_POST["r_date"];
                         if (!empty($r_date)){
                             $sql = "SELECT * FROM Flight WHERE 
                             d_airport = '{$d_airport}' and a_airport = '{$a_airport}' and d_date_time like'%{$d_date}%'
