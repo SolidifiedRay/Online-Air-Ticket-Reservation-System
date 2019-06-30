@@ -10,6 +10,7 @@ $c_email = $_SESSION["username"];
 $card_type = $_POST["card_type"];
 $card_number = $_POST["card_number"];
 $name_on_card = $_POST["name_on_card"];
+$s_code = $_POST["s_code"];
 $exp_date = $_POST["exp_date"];
 $curr_date = new DateTime();
 $purchase_date_time = $curr_date->format('Y-m-d H:i:s');
@@ -32,7 +33,7 @@ else{
 
 //2.sql statement
 $sql2 = "insert into ticket values('{$newid}','{$f_id}','{$al_name}','{$d_date_time}','{$c_email}','{$price}',
-        '{$card_type}','{$card_number}','{$name_on_card}','{$exp_date}','{$purchase_date_time}');";
+        '{$card_type}','{$card_number}','{$name_on_card}','{$exp_date}','{$s_code}','{$purchase_date_time}');";
 
 //3.execute
 $r = $db->query($sql2);

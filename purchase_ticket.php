@@ -89,6 +89,12 @@
                               <input type="text" class="form-control" id="exp_date" name="exp_date" placeholder="Please enter your card expiration date format:2019-01-01">
                             </div>
                           </div>
+                          <font class="login-subtitle">Security Code:</font><br/>
+                          <div class="form-group">
+                            <div class="col-sm-10">
+                              <input type="text" class="form-control" id="s_code" name="s_code" placeholder="Please enter your security code format:2019-01-01">
+                            </div>
+                          </div>
                           <br/><br/>
                           <div class="form-group">
                             <div class="col-sm-10">
