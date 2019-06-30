@@ -117,7 +117,7 @@ EOT;
                     $sql = "SELECT COUNT(T.t_id) as countnum, F.a_airport, A.city
                              FROM Staff S NATURAL JOIN Flight F NATURAL JOIN Ticket T, Airport A
                              WHERE A.airport_name = F.a_airport and S.user_name = '{$username}' 
-                             and Year(cast(F.d_date_time as datetime)) = Year(CURDATE())
+                             and Year(cast(F.d_date_time as datetime)) = Year(CURDATE())-1
                              GROUP BY F.a_airport
                              ORDER BY countnum DESC
                              Limit 3";
