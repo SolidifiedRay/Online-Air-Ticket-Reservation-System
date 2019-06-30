@@ -31,7 +31,7 @@
       <div class="content-box">
           <br/><br/><br/><br/>
           <div class="container" style="width: 100%">
-          <h3><font color="white">Frequent Customer Information</font></h3>
+          <h3><font color="white">Frequent Customer (Last Year) Information</font></h3>
         </div>
             <div class="row" style="width: 99%; margin:0 auto;">
               <table class="table table-hover view-table" >
@@ -116,7 +116,7 @@ EOT;
     <div class="content-box">
     <br/><br/><br/><br/>
     <div class="container" style="width: 100%">
-          <h3><font color="white">Flights Booked By Frequent Customer</font></h3>
+          <h3><font color="white">Flights Taken By Frequent Customer Till Now</font></h3>
         </div>
             <div class="row" style="width: 99%; margin:0 auto;">
               <table class="table table-hover view-table" >
@@ -163,7 +163,7 @@ EOT;
                       $sql = "SELECT Flight.* 
                       FROM Ticket Natural Join Staff Natural Join Flight 
                       WHERE Staff.user_name = '{$username}' and Ticket.c_email = '{$topcust}' 
-                      and year(cast(Flight.d_date_time as datetime)) = YEAR(CURDATE())-1";
+                      and cast(Flight.d_date_time as datetime) < now()";
 
                       $result = $conn->query($sql);
                       if ($result-> num_rows>0){
