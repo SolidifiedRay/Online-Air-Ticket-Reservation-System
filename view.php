@@ -1,6 +1,4 @@
-<?php
-  
-  print <<<EOT
+
   <!doctype html>
   <html lang="en">
      <head>
@@ -49,9 +47,6 @@
                   </thead>
                   <tbody>
 
-EOT;
-?>
-
 <?php  
                   $conn = new mysqli("localhost","solidifiedray","Ray826589!","solidifiedray") or die("Connect failed: %s\n". $conn -> error);
                   $sql = "SELECT * FROM Flight";
@@ -93,8 +88,9 @@ EOT;
                           echo "</table>";
                           $conn->close();
                   }
+EOT;
+?>
 
-print <<<EOT
                   </tbody>
                 </table>
               </div>
@@ -109,5 +105,3 @@ print <<<EOT
      </body>
   </html>
 
-EOT;
-?>

@@ -31,7 +31,7 @@
       <div class="content-box">
           <br/><br/><br/><br/>
           <div class="container" style="width: 100%">
-          <h3><font color="white">Frequent Customer Information</font></h3>
+          <h3><font color="white">Frequent Customer (Last Year) Information</font></h3>
         </div>
             <div class="row" style="width: 99%; margin:0 auto;">
               <table class="table table-hover view-table" >
@@ -116,7 +116,7 @@ EOT;
     <div class="content-box">
     <br/><br/><br/><br/>
     <div class="container" style="width: 100%">
-          <h3><font color="white">Flights Booked By Frequent Customer</font></h3>
+          <h3><font color="white">Flights Taken By Frequent Customer Till Now</font></h3>
         </div>
             <div class="row" style="width: 99%; margin:0 auto;">
               <table class="table table-hover view-table" >
@@ -143,7 +143,6 @@ EOT;
 ?>
 
               <?PHP
-                  $conn = new mysqli("localhost","solidifiedray","Ray826589!","solidifiedray") or die("Connect failed: %s\n". $conn -> error);
                   if($_SESSION["username"]){
                     $username = $_SESSION["username"];
                     $conn = new MySQLi("localhost","solidifiedray","Ray826589!","solidifiedray");
@@ -161,8 +160,9 @@ EOT;
                     }
 
                       $sql = "SELECT Flight.* 
-                              FROM Customer Natural Join Ticket Natural Join Staff Natural Join Flight
-                              WHERE Staff.user_name = '{$username}' and Customer.c_email = '{$topcust}'";
+                      FROM Ticket Natural Join Staff Natural Join Flight 
+                      WHERE Staff.user_name = '{$username}' and Ticket.c_email = '{$topcust}' 
+                      and cast(Flight.d_date_time as datetime) < now()";
 
                       $result = $conn->query($sql);
                       if ($result-> num_rows>0){
@@ -192,6 +192,140 @@ EOT;
               ?>
 <?php
   print <<<EOT
+
+  　<br/><br/><br/><br/>
+    <div class="container" style="width: 100%">
+          <h3><font color="white">All Customer Information</font></h3>
+        </div>
+            <div class="row" style="width: 99%; margin:0 auto;">
+              <table class="table table-hover view-table" >
+                <thead style="background-color: #a1a1a1">
+                
+                <tr>
+                <th class="view-table-head">Email</th>
+                <th class="view-table-head">Name</th>
+                <th class="view-table-head">Building Name</th>
+                <th class="view-table-head">Street</th>
+                <th class="view-table-head">City</th>
+                <th class="view-table-head">State</th>
+                <th class="view-table-head">Phone Number</th>
+                <th class="view-table-head">Passport Number</th>
+                <th class="view-table-head">Passport Expiration</th>
+                <th class="view-table-head">Passport Country</th>
+                <th class="view-table-head">Date Of Birth</th>
+                <th class="view-table-head">View His/Her Flight</th>
+            </tr>
+          </thead>
+          <tbody>
+            
+              </form>
+EOT;
+?>
+
+              <?PHP
+                  if($_SESSION["username"]){
+                    $username = $_SESSION["username"];
+                    $conn = new MySQLi("localhost","solidifiedray","Ray826589!","solidifiedray");
+                    
+                      $sql = "SELECT DISTINCT Customer.* 
+                              FROM Staff natural join Ticket, Customer 
+                              where Customer.c_email = Ticket.c_email 
+                              and staff.user_name = '{$username}'";
+
+                      $result = $conn->query($sql);
+                      if ($result-> num_rows>0){
+                      while ($row = $result -> fetch_assoc()){
+                          echo "<tr>
+                            <td class='view-table-td'>".$row["c_email"]."</td>
+                            <td class='view-table-td'>".$row["c_name"]."</td>
+                            <td class='view-table-td'>".$row["building_name"]."</td>
+                            <td class='view-table-td'>".$row["street"]."</td>
+                            <td class='view-table-td'>".$row["city"]."</td>
+                            <td class='view-table-td'>".$row["state"]."</td>
+                            <td class='view-table-td'>".$row["phone_num"]."</td>
+                            <td class='view-table-td'>".$row["passport_num"]."</td>
+                            <td class='view-table-td'>".$row["passport_expiration"]."</td>
+                            <td class='view-table-td'>".$row["passport_country"]."</td>
+                            <td class='view-table-td'>".$row["date_of_birth"]."</td>
+                            <td class='view-table-td'><a href='frequent.php?c_email=".$row["c_email"]."'/>View Flights</a>
+                              </tr>";
+                          }
+                      echo "</table>";
+                      }
+                      else{
+                          }
+                      $conn->close();
+                      }
+                  
+                  else{
+                      echo "<script> alert('You need to login first');location.href='login.html' </script>";
+                    }
+              ?>
+
+<?php
+  
+  print <<<EOT
+                  </tbody>
+                </table>
+
+
+
+                <h3><font color="white">Flight Information Till Now</font></h3>
+                <table class="table table-hover view-table" >
+                  <thead style="background-color: #a1a1a1">
+                    <tr>
+                      <th class="view-table-head">Flight ID</th>
+                      <th class="view-table-head">Departure Time</th>
+                      <th class="view-table-head">Airline</th>
+                      <th class="view-table-head">Airplane</th>
+                      <th class="view-table-head">Departure Airport</th>
+                      <th class="view-table-head">Arrival Airport</th>
+                      <th class="view-table-head">Arrival Time</th>
+                      <th class="view-table-head">Price</th>
+                      <th class="view-table-head">Status</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    
+                      </form>
+EOT;
+?>
+<?PHP
+                        if($_SESSION["username"]){
+                          $conn = new MySQLi("localhost","solidifiedray","Ray826589!","solidifiedray");
+                          $username = $_SESSION["username"];
+                          $email= $_GET["c_email"];
+                          if (!empty($_GET["c_email"])){
+                              $sql = "SELECT Flight.* 
+                                      FROM Ticket Natural Join Staff Natural Join Flight 
+                                      WHERE Staff.user_name = '{$username}' and Ticket.c_email = '{$_GET["c_email"]}' 
+                                      and cast(Flight.d_date_time as datetime) < now()";                       
+                              $result = $conn->query($sql);
+                              if ($result-> num_rows>0){
+                              while ($row = $result -> fetch_assoc()){
+                                  echo "<tr>
+                                    <td class='view-table-td'>".$row["f_id"]."</td>
+                                    <td class='view-table-td'>".$row["d_date_time"]."</td>
+                                    <td class='view-table-td'>".$row["al_name"]."</td>
+                                    <td class='view-table-td'>".$row["ap_id"]."</td>
+                                    <td class='view-table-td'>".$row["d_airport"]."</td>
+                                    <td class='view-table-td'>".$row["a_airport"]."</td>
+                                    <td class='view-table-td'>".$row["a_date_time"]."</td>
+                                    <td class='view-table-td'>".$row["base_price"]."</td>
+                                    <td class='view-table-td'>".$row["status"]."</td>
+                                          
+                                      </tr>";
+                                  }
+                              echo "</table>";
+                              $conn->close();
+                              }
+                          }
+                          
+                        }else{
+                          echo "<script> alert('You need to login first');location.href='login.html' </script>";
+                        }
+                          
+?>
           </tbody>
         </table>
         <a href="staff.php">
@@ -207,5 +341,5 @@ EOT;
       <script src="components/navigation.js"></script>
    </body>
 </html>
-EOT;
-?>
+
+
