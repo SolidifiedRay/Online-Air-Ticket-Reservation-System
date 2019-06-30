@@ -41,8 +41,6 @@
                       <th class="view-table-head">Arrival Time</th>
                       <th class="view-table-head">price</th>
                       <th class="view-table-head">status</th>
-                      <th class="view-table-head"></th>
-                      <th class="view-table-head"></th>
                     </tr>
                   </thead>
                   <tbody>
@@ -81,8 +79,7 @@
                                       <td class='view-table-td'>".$row["a_airport"]."</td>
                                       <td class='view-table-td'>".$row["a_date_time"]."</td>
                                       <td class='view-table-td'>".number_format($price, 2, '.', ' ')."</td>
-                                      <td class='view-table-td'>"."View Comment"."</td>
-                                      
+                                      <td class='view-table-td'>".$row["status"]."</td>
                                   </tr>";
                           }
                           echo "</table>";
