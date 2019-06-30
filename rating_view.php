@@ -100,8 +100,9 @@ EOT;
                         if($_SESSION["username"]){
                           $conn = new mysqli("localhost","solidifiedray","Ray826589!","solidifiedray") or die("Connect failed: %s\n". $conn -> error);
                           $username = $_SESSION["username"];
-                          $f_id = $_GET["f_id"];
+                          $f_id = $_GET["f_id"]??'';
                           if (!empty($f_id)){
+                              
                               $sql = "SELECT * FROM Rating Where f_id = '{$f_id}'";
                               //"SELECT R.f_id, R.d_date_time,R.comment
                               //FROM Rating R Natural Join Flight F Natural Join Staff S
