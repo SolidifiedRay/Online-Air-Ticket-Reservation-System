@@ -13,7 +13,7 @@ $phone_number = $_POST["phone_number"];
 $passport_expiration = $_POST["passport_expiration"];
 $passport_number = $_POST["passport_number"];
 $passport_country = $_POST["passport_country"];
-$dob = $_POST["date_of_birth"];
+$date_of_birth = $_POST["date_of_birth"];
 
 //1.connect
 $db = new MySQLi("localhost","solidifiedray","Ray826589!","solidifiedray");
@@ -40,7 +40,7 @@ else{
             else{
                 //2.sql statement
                 $sql = "insert into customer values('{$username}','{$name}','{$password}','{$building_name}','{$street}','{$city}',
-                        '{$state}','{$phone_number}','{$passport_number}','{$passport_expiration}','{$passport_country}','{$dob}')";
+                        '{$state}','{$phone_number}','{$passport_number}','{$passport_expiration}','{$passport_country}','{$date_of_birth}')";
                 //3.execute
                 $r = $db->query($sql);
                 if($r)
