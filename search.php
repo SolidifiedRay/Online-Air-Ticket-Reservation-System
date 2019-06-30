@@ -89,7 +89,6 @@
                     <th class="view-table-head">price</th>
                     <th class="view-table-head">status</th>
                     <th class="view-table-head"></th>
-                    <th class="view-table-head"></th>
                   </tr>
                 </thead>
                 <tbody>
@@ -147,7 +146,6 @@ EOT;
                                       <td class='view-table-td'>".$row["a_airport"]."</td>
                                       <td class='view-table-td'>".$row["a_date_time"]."</td>
                                       <td class='view-table-td'>".number_format($price, 2, '.', ' ')."</td><td>".$row["status"]."</td>
-                                      <td class='view-table-td'><a href='comment_flight.php?f_id=".$row["f_id"]."&price=".$price."'>"."Comment"."</a></td>
                                       <td class='view-table-td'><a href='purchase_ticket.php?f_id=".$row["f_id"]."&price=".$price."'>"."Purchase"."</a></td>
                                   </tr>";
                             }

@@ -43,6 +43,7 @@
                       <th class="view-table-head">Arrival Time</th>
                       <th class="view-table-head">price</th>
                       <th class="view-table-head">status</th>
+                      <th class="view-table-head"></th>
                     </tr>
                   </thead>
                   <tbody>
@@ -57,7 +58,7 @@ EOT;
                           $conn = new MySQLi("localhost","solidifiedray","Ray826589!","solidifiedray") or die("Connect failed: %s\n". $conn -> error);
                           $email = $_SESSION["username"];
                           $date_time = $_SERVER['REQUEST_TIME'];
-                          $sql = "SELECT * FROM Flight F Natural Join Ticket T WHERE T.c_email = '{$email}' and cast(T.d_date_time as datetime) >= now()";                        
+                          $sql = "SELECT * FROM Flight F Natural Join Ticket T WHERE T.c_email = '{$email}' and cast(T.d_date_time as datetime) <= now()";                        
                           $result = $conn->query($sql);
                           if ($result-> num_rows>0){
                             while ($row = $result -> fetch_assoc()){
@@ -75,6 +76,7 @@ EOT;
                                         <td class='view-table-td'>".$row["a_date_time"]."</td>
                                         <td class='view-table-td'>".number_format($price, 2, '.', ' ')."</td>
                                         <td class='view-table-td'>".$row["status"]."</td>
+                                        <td class='view-table-td'><a href='comment_flight.php?f_id=".$row["f_id"]."&price=".$price."'>"."Comment"."</a></td>
 
                                     </tr>";
                                 }

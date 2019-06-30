@@ -86,7 +86,7 @@
                           <a href="user_view.php"><font class="login-text">View My flights<font class="login-text"><br/></a>
                           <a href="search.php"><font class="login-text">Search for flights<font class="login-text"><br/></a>
                           <a href="search.php"><font class="login-text">Purchase tickets<br/><font class="login-text"></a>
-                          <a href="search.php"><font class="login-text">Give rating and comments on previous flights<br/><font class="login-text"></a>
+                          <a href="user_comment.php"><font class="login-text">Give rating and comments on previous flights<br/><font class="login-text"></a>
                           <a href="track_spending.php"><font class="login-text">Track Spending<br/><font class="login-text"></a>
                           <a href="logout.php"><font class="login-text"><u>Logout</u></font></a><br/>
                         </font>
