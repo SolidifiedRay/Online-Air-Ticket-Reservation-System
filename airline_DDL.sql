@@ -87,7 +87,7 @@ create table Ticket
 	 al_name		varchar(25),
 	 d_date_time	varchar(25),
 	 c_email		varchar(50),
-	 sold_price		numeric(5,2),
+	 sold_price		numeric(6,2),
 	 card_type		varchar(15),
 	 card_num		varchar(50),
 	 name_on_card	varchar(15),
