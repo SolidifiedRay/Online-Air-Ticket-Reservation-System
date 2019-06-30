@@ -30,7 +30,7 @@
         <div class="content-box">
             <br/><br/><br/><br/>
             <div class="container" style="width: 100%">
-            <h3><font color="white">Future Flight</font></h3>
+            <h3><font color="white">Future Flight In 30 Days</font></h3>
           </div>
               <div class="row" style="width: 99%; margin:0 auto;">
                 <table class="table table-hover view-table" >
@@ -162,10 +162,10 @@ EOT;
                           $conn = new mysqli("localhost","solidifiedray","Ray826589!","solidifiedray") or die("Connect failed: %s\n". $conn -> error);
                           if($_SESSION["username"]){
                               $username = $_SESSION["username"];
-                              $start = $_POST["start"];
-                              $end = $_POST["end"];
-
+                              
                               if(!empty($_POST["start"])||!empty($_POST["end"])){
+                                  $start = $_POST["start"];
+                                  $end = $_POST["end"];
                                   $sql = "SELECT * FROM Flight F natural join Staff S WHERE S.user_name = '{$username}' and 
                                   cast(F.d_date_time as datetime) between cast('{$start}' as datetime) and cast('{$end}' as datetime)";
                               
