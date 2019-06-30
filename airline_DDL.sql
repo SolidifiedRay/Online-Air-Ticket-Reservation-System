@@ -27,7 +27,7 @@ create table Flight
 	 d_airport		varchar(25),
 	 a_airport		varchar(25),
 	 a_date_time	varchar(25),
-	 base_price		numeric(5,2),
+	 base_price		numeric(6,2),
 	 status			varchar(10),
 
 	 primary key (f_id, d_date_time, al_name),
@@ -65,7 +65,7 @@ create table Staff_phone
 
 
 create Table Customer
-	(c_email		varchar(15),
+	(c_email		varchar(50),
 	 c_name			varchar(15),
 	 password		varchar(50),
 	 building_name	varchar(15),
@@ -86,12 +86,13 @@ create table Ticket
 	 f_id			varchar(10),
 	 al_name		varchar(25),
 	 d_date_time	varchar(25),
-	 c_email		varchar(15),
+	 c_email		varchar(50),
 	 sold_price		numeric(5,2),
 	 card_type		varchar(15),
-	 card_num		varchar(15),
+	 card_num		varchar(50),
 	 name_on_card	varchar(15),
-	 exp_date		date,
+	 exp_date		varchar(20),
+	 s_code		varchar(20),
 	 purchase_date_time		varchar(25),
 
 	 primary key (t_id),
@@ -100,7 +101,7 @@ create table Ticket
 	);
 
 create table Rating
-	(c_email		varchar(20),
+	(c_email		varchar(50),
 	 f_id			varchar(10),
 	 d_date_time	varchar(20),
 	 al_name		varchar(25),
