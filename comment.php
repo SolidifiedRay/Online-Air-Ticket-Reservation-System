@@ -45,7 +45,7 @@ else{
     echo "You need to log in. ";
     //login.html part TODO (chaneg to homepage when finished)
     echo "You will be redirected in 3 seconds or click <a href=\"login.html\">here</a>.";
-    header("refresh: 3; login.html.php");
+    header("refresh: 3; login.html");
 }
 
 ?>
