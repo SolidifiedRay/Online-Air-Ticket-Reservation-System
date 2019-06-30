@@ -8,16 +8,16 @@
     }
 
     $mysqli = new MySQLi("localhost","solidifiedray","Ray826589!","solidifiedray");
-    $sql = "SELECT * FROM staff NATURAL JOIN staff_phone WHERE user_name = '{$username}'";
+    $sql = "SELECT * FROM staff WHERE user_name = '{$username}'";
     $result = $mysqli->query($sql);
     while ($row = $result -> fetch_assoc()){
         $username = $row["user_name"];
         $first_name = $row["first_name"];
         $last_name = $row["last_name"];
         $date_of_birth = $row["date_of_birth"];
-        $phone_number = $row["phone"];
         $airline_name = $row["al_name"];
     }
+    $sql_phone = "SELECT * FROM staff WHERE user_name = '{$username}'";
 
     print <<<EOT
 
@@ -46,9 +46,6 @@
           <div id="nav">
               <public-header></public-header>
           </div> 
-          <?php
-            
-          ?>
           <div class="content-box">
               <br/><br/><br/><br/><br/><br/><br/>
               <div class="container" style="width: 100%">
@@ -63,7 +60,22 @@
                           username: $username<br/>
                           name: $first_name $last_name<br/>
                           airline: $airline_name<br/>
-                          phone number: $phone_number<br/>
+                          phone number: <br/>
+EOT;
+?>
+<?php
+                  $sql2 = "SELECT * FROM staff_phone WHERE user_name = '{$username}'";
+                  $result = $mysqli->query($sql2);
+
+                  if ($result-> num_rows>0){
+                          while ($row = $result -> fetch_assoc()){
+                            echo "".$row["phone"]."<br/>";
+                          }
+                          $mysqli->close();
+                  }
+?>
+<?php
+  print <<<EOT
                           date of birth: $date_of_birth<br/>
                         </p>
                         <br/><br/><br/><br/>
@@ -71,6 +83,7 @@
                       <td width="1%"></td>
                       <td width="35%" class="login-table-right">
                         <font class="login-text">
+                          <a href="add_phone.html"><font class="login-text">Add Phone<font class="login-text"><br/></a>
                           <a href="staff_view.php"><font class="login-text">View flights<font class="login-text"><br/></a>
                           <a href="add_flight.html"><font class="login-text">Create new flights</font></a><br/>
                           <a href="change_status.html"><font class="login-text">Change flight's status</font></a><br/>

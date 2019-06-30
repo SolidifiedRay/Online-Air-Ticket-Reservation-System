@@ -58,7 +58,6 @@ create table Staff_phone
 	(user_name		varchar(15),
 	 phone	        numeric(15,0),
 
-	 primary key (user_name), 
 	 foreign key (user_name) references Staff(user_name)
 		on delete cascade
 	);
