@@ -161,8 +161,9 @@ EOT;
                     }
 
                       $sql = "SELECT Flight.* 
-                              FROM Customer Natural Join Ticket Natural Join Staff Natural Join Flight
-                              WHERE Staff.user_name = '{$username}' and Customer.c_email = '{$topcust}'";
+                      FROM Ticket Natural Join Staff Natural Join Flight 
+                      WHERE Staff.user_name = '{$username}' and Ticket.c_email = '{$topcust}' 
+                      and year(cast(Flight.d_date_time as datetime)) = YEAR(CURDATE())-1";
 
                       $result = $conn->query($sql);
                       if ($result-> num_rows>0){
