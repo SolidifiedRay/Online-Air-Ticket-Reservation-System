@@ -61,9 +61,9 @@
     if($_SESSION["username"]){
         $conn = new MySQLi("localhost","solidifiedray","Ray826589!","solidifiedray");
         $username = $_SESSION["username"];
-        $start = $_POST["start"];
-        $end = $_POST["end"];
         if(!empty($_POST["start"])||!empty($_POST["end"])){
+            $start = $_POST["start"];
+            $end = $_POST["end"];
             $dataPoints3 = array();
             $sql3 = "SELECT MONTHNAME(cast(T.purchase_date_time as datetime)) as mon, count(t_id) as num 
                     FROM Staff S NATURAL JOIN Ticket T
