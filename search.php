@@ -107,10 +107,12 @@ EOT;
                         if (!empty($r_date)){
                             $sql = "SELECT * FROM Flight WHERE 
                             d_airport = '{$d_airport}' and a_airport = '{$a_airport}' and d_date_time like'%{$d_date}%'
-                            or (a_airport = '{$d_airport}' and d_airport = '{$a_airport}' and d_date_time like'%{$r_date}%')";
+                            or (a_airport = '{$d_airport}' and d_airport = '{$a_airport}' and d_date_time like'%{$r_date}%')
+                            and cast(Flight.d_date_time as datetime) >= now()";
                           }else{
                             $sql = "SELECT * FROM Flight WHERE 
-                            d_airport = '{$d_airport}' and a_airport = '{$a_airport}' and d_date_time like'%{$d_date}%'";
+                            d_airport = '{$d_airport}' and a_airport = '{$a_airport}' and d_date_time like'%{$d_date}%'
+                            and cast(Flight.d_date_time as datetime) >= now()";
                           }
 
 
