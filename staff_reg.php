@@ -37,7 +37,7 @@ if($staff_id = "staff"){
                 else{
                     if($username == '' or $password == '' or $first_name == '' or $last_name == '' or $date_of_birth == ''
                         or $phone_number == '' or $airline_name == ''){
-                        echo "<script> alert('You need to enter all the information');location.href='register.html' </script>";
+                        echo "<script> alert('You need to enter all the information');location.href='staff_reg.html' </script>";
                     }
                     else{
                         //2.sql statement
