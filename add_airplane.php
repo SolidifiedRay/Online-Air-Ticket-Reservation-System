@@ -14,27 +14,32 @@ $db = new MySQLi("localhost","solidifiedray","Ray826589!","solidifiedray");
 if(isset($_SESSION["username"])){
     //check if email is already in the database
     if ($stmt = $db->prepare("select ap_id from airplane where ap_id = ?")) {
-            $stmt->bind_param("s", $_POST["f_id"]);
+            $stmt->bind_param("s", $_POST["ap_id"]);
             $stmt->execute();
             $stmt->bind_result($temp);
             if ($stmt->fetch()) {
-                echo "That flight already exists. ";
+                echo "That airplane already exists. ";
                 echo "You will be redirected in 3 seconds or click <a href=\"add_airplane.html\">here</a>.";
                 header("refresh: 3; add_airplane.html");
                 $stmt->close();
             }
             else{
-                //2.sql statement
-                $sql = "insert into airplane values('{$ap_id}','{$al_name}','{$ap_name}','{$seat}')";
-                //3.execute
-                $r = $db->query($sql);
-                if($r)
-                {
-                    echo "<script> alert('Submit Successful');location.href='staff.php' </script>";
+                if($ap_id == '' or $al_name == '' or $ap_name == '' or $seat_string == ''){
+                    echo "<script> alert('You need to enter all the information');location.href='add_airplane.html' </script>";
                 }
-                else
-                {
-                    echo "<script> alert('Submit Failed');location.href='add_airplane.html' </script>";
+                else{
+                    //2.sql statement
+                    $sql = "insert into airplane values('{$ap_id}','{$al_name}','{$ap_name}','{$seat}')";
+                    //3.execute
+                    $r = $db->query($sql);
+                    if($r)
+                    {
+                        echo "<script> alert('Submit Successful');location.href='staff.php' </script>";
+                    }
+                    else
+                    {
+                        echo "<script> alert('Submit Failed');location.href='add_airplane.html' </script>";
+                    }
                 }
             }
     }

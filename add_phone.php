@@ -15,23 +15,29 @@ if($staff_id = "staff"){
             $stmt->bind_result($user_name);
             if ($stmt->fetch()) {
                 $stmt->close();
-                //2.sql statement
-                $sql2 = "insert into staff_phone values('{$_SESSION["username"]}','{$phone_number}')";
-                //3.execute
-                $r2 = $db->query($sql2);
-                if($r2)
-                {
-                    echo "<script> alert('Submit Successful');location.href='login.html' </script>";
+
+                if($phone_number == ''){
+                    echo "<script> alert('You need to enter all the information');location.href='add_phone.html' </script>";
                 }
-                else
-                {
-                    echo "<script> alert('Submit Failed');location.href='add_phone.html' </script>";
+                else{
+                    //2.sql statement
+                    $sql2 = "insert into staff_phone values('{$_SESSION["username"]}','{$phone_number}')";
+                    //3.execute
+                    $r2 = $db->query($sql2);
+                    if($r2)
+                    {
+                        echo "<script> alert('Submit Successful');location.href='user.php' </script>";
+                    }
+                    else
+                    {
+                        echo "<script> alert('Submit Failed');location.href='add_phone.html' </script>";
+                    }
                 }
             }
             else{
                 echo "Staff not exists. ";
-                echo "You will be redirected in 3 seconds or click <a href=\"register.html\">here</a>.";
-                header("refresh: 3; register.html");
+                echo "You will be redirected in 3 seconds or click <a href=\"login.html\">here</a>.";
+                header("refresh: 3; login.html");
             }
     }
     

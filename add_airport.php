@@ -11,7 +11,7 @@ $db = new MySQLi("localhost","solidifiedray","Ray826589!","solidifiedray");
 if(isset($_SESSION["username"])){
     //check if email is already in the database
     if ($stmt = $db->prepare("select airport_name from airport where airport_name = ?")) {
-            $stmt->bind_param("s", $_POST["f_id"]);
+            $stmt->bind_param("s", $_POST["airport_name"]);
             $stmt->execute();
             $stmt->bind_result($temp);
             if ($stmt->fetch()) {
@@ -21,17 +21,22 @@ if(isset($_SESSION["username"])){
                 $stmt->close();
             }
             else{
-                //2.sql statement
-                $sql = "insert into airport values('{$airport_name}','{$city}')";
-                //3.execute
-                $r = $db->query($sql);
-                if($r)
-                {
-                    echo "<script> alert('Submit Successful');location.href='staff.php' </script>";
+                if($airport_name == '' or $city == ''){
+                    echo "<script> alert('You need to enter all the information');location.href='add_airport.html'</script>";
                 }
-                else
-                {
-                    echo "<script> alert('Submit Failed');location.href='add_airport.html' </script>";
+                else{
+                    //2.sql statement
+                    $sql = "insert into airport values('{$airport_name}','{$city}')";
+                    //3.execute
+                    $r = $db->query($sql);
+                    if($r)
+                    {
+                        echo "<script> alert('Submit Successful');location.href='staff.php' </script>";
+                    }
+                    else
+                    {
+                        echo "<script> alert('Submit Failed');location.href='add_airport.html' </script>";
+                    }
                 }
             }
     }

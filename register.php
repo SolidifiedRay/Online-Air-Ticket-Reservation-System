@@ -38,19 +38,27 @@ else{
                 $stmt->close();
             }
             else{
-                //2.sql statement
-                $sql = "insert into customer values('{$username}','{$name}','{$password}','{$building_name}','{$street}','{$city}',
-                        '{$state}','{$phone_number}','{$passport_number}','{$passport_expiration}','{$passport_country}','{$date_of_birth}')";
-                //3.execute
-                $r = $db->query($sql);
-                if($r)
-                {
-                    echo "<script> alert('Register Successful');location.href='login.html' </script>";
+                if($username == '' or $password == '' or $name == '' or $building_name == '' or $street == '' or $city == '' or $state == ''
+                    or $phone_number == '' or $passport_expiration == '' or $passport_number == '' or $passport_country == ''
+                     or $date_of_birth == ''){
+                    echo "<script> alert('You need to enter all the information');location.href='register.html' </script>";
                 }
-                else
-                {
-                    echo "<script> alert('Register Failed');location.href='register.html' </script>";
+                else{
+                    //2.sql statement
+                    $sql = "insert into customer values('{$username}','{$name}','{$password}','{$building_name}','{$street}','{$city}',
+                            '{$state}','{$phone_number}','{$passport_number}','{$passport_expiration}','{$passport_country}','{$date_of_birth}')";
+                    //3.execute
+                    $r = $db->query($sql);
+                    if($r)
+                    {
+                        echo "<script> alert('Register Successful');location.href='login.html' </script>";
+                    }
+                    else
+                    {
+                        echo "<script> alert('Register Failed');location.href='register.html' </script>";
+                    }
                 }
+
             }
     }
 }

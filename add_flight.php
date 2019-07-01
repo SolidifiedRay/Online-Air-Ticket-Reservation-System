@@ -29,19 +29,26 @@ if(isset($_SESSION["username"])){
                 $stmt->close();
             }
             else{
-                //2.sql statement
-                $sql = "insert into flight values('{$f_id}','{$d_date_time}','{$al_name}','{$ap_id}','{$d_airport}','{$a_airport}',
-                        '{$a_date_time}','{$base_price}','{$status}')";
-                //3.execute
-                $r = $db->query($sql);
-                if($r)
-                {
-                    echo "<script> alert('Submit Successful');location.href='staff.php' </script>";
+                if($f_id == '' or $d_date_time == '' or $al_name == '' or $ap_id == '' or $d_airport == '' or $a_airport == '' or $a_date_time == ''
+                    or $status == '' or $base_price_string == ''){
+                    echo "<script> alert('You need to enter all the information');location.href='add_flight.html' </script>";
                 }
-                else
-                {
-                    echo "<script> alert('Submit Failed');location.href='add_flight.html' </script>";
+                else{
+                    //2.sql statement
+                    $sql = "insert into flight values('{$f_id}','{$d_date_time}','{$al_name}','{$ap_id}','{$d_airport}','{$a_airport}',
+                            '{$a_date_time}','{$base_price}','{$status}')";
+                    //3.execute
+                    $r = $db->query($sql);
+                    if($r)
+                    {
+                        echo "<script> alert('Submit Successful');location.href='staff.php' </script>";
+                    }
+                    else
+                    {
+                        echo "<script> alert('Submit Failed');location.href='add_flight.html' </script>";
+                    }
                 }
+                
             }
     }
 }
