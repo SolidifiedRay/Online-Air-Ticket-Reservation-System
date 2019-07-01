@@ -2,7 +2,7 @@
     session_start();
 
     if($_SESSION["type"]){
-       echo "<script> alert('Moving to staff page');location.href='staff.php' </script>";
+      header("Location:staff.php");
     }
 
     if($_SESSION["username"]){
