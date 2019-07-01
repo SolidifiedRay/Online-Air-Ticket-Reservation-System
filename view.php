@@ -47,7 +47,7 @@
 
 <?php  
                   $conn = new mysqli("localhost","solidifiedray","Ray826589!","solidifiedray") or die("Connect failed: %s\n". $conn -> error);
-                  $sql = "SELECT * FROM Flight";
+                  $sql = "SELECT * FROM Flight WHERE cast(Flight.d_date_time as datetime) >= now()";
                   $result = $conn->query($sql);
 
                   if ($result-> num_rows>0){
