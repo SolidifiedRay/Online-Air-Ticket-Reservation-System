@@ -32,20 +32,32 @@ else{
 }
 
 if(isset($_SESSION["username"])){
-	//2.sql statement
-	$sql = "insert into ticket values('{$newid}','{$f_id}','{$al_name}','{$d_date_time}','{$c_email}','{$price}',
-	        '{$card_type}','{$card_number}','{$name_on_card}','{$exp_date}','{$s_code}','{$purchase_date_time}');";
 
-	//3.execute
-	$r = $db->query($sql);
-	if($r)
-	{
-	    echo "<script> alert('Purchase Successful');location.href='user_view.php' </script>";
-	}
-	else
-	{
-	    echo "<script> alert('Purchase Failed');location.href='search.php' </script>";
-	}
+    $sql1 = "SELECT seat FROM Flight NATURAL JOIN Airplane WHERE f_id = '{$f_id}'";
+    $db1 = $db->query($sql1);
+    $tot_ticket = mysqli_fetch_array($db1);
+
+    $sql2 = "SELECT COUNT(t_id) FROM Flight NATURAL JOIN Ticket WHERE f_id = '{$f_id}' and d_date_time='{$d_date_time}'";
+    $db2 = $db->query($sql2);
+    $num_sold = mysqli_fetch_array($db2);
+    if ($tot_ticket[0] - $num_sold[0] <= 0){
+    	echo "<script> alert('Ticket Sold Out');location.href='search.php' </script>";
+    }else{
+		//2.sql statement
+		$sql3 = "insert into ticket values('{$newid}','{$f_id}','{$al_name}','{$d_date_time}','{$c_email}','{$price}',
+		        '{$card_type}','{$card_number}','{$name_on_card}','{$exp_date}','{$s_code}','{$purchase_date_time}');";
+
+		//3.execute
+		$r = $db->query($sql3);
+		if($r)
+		{
+		    echo "<script> alert('Purchase Successful');location.href='user_view.php' </script>";
+		}
+		else
+		{
+		    echo "<script> alert('Purchase Failed');location.href='search.php' </script>";
+		}
+    }
 				
 }
 else{
