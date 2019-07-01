@@ -66,7 +66,7 @@ EOT;
                                     WHERE Staff.user_name = '{$username}' and
                                     year(cast(F.d_date_time as datetime)) = YEAR(CURDATE())-1
                                     GROUP BY Ticket.c_email 
-                                    ORDER BY countnum ASC";
+                                    ORDER BY countnum DESC LIMIT 1";
                             $result = $conn->query($sql);
 
                             while ($row = $result -> fetch_assoc()){
@@ -151,7 +151,7 @@ EOT;
                             WHERE Staff.user_name = '{$username}' 
                             and year(cast(F.d_date_time as datetime)) = YEAR(CURDATE())-1
                             GROUP BY Ticket.c_email 
-                            ORDER BY countnum ASC";
+                            ORDER BY countnum DESC LIMIT 1";
                     $result1 = $conn->query($sql1);
 
                     while ($row = $result1 -> fetch_assoc()){
