@@ -1,6 +1,8 @@
 A project for NYU Shanghai 2019 Summer course
 Databases CSCI-SHU 213
 
+http://cytus2wiki.com/airticket/index.html
+
 Project Overview:
 The course project for this semester is online Air Ticket Reservation System. Using this system,
 customers can search for flights (one way or round trip), purchase flights ticket, view their future flight
